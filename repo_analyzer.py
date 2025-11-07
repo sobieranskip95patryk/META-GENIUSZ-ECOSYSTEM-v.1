@@ -166,7 +166,7 @@ class RepoAnalyzer:
                     score += 2
                 elif days_since < 180:
                     score += 1
-            except:
+            except (ValueError, TypeError):
                 pass
                 
         # Open issues (indicates engagement)
@@ -204,7 +204,7 @@ class RepoAnalyzer:
                     return "🤔 Occasionally used (3+ months)"
                 else:
                     return "✅ Active"
-            except:
+            except (ValueError, TypeError):
                 pass
                 
         return "❓ Status unknown"

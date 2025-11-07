@@ -28,7 +28,7 @@ def calculate_activity_score(repo: Dict) -> str:
                 score += 2
             elif days_since < 180:
                 score += 1
-        except:
+        except (ValueError, TypeError):
             pass
             
     # Stars
@@ -75,7 +75,7 @@ def determine_status(repo: Dict) -> str:
                 return "🤔 Occasionally used (3+ months)"
             else:
                 return "✅ Active"
-        except:
+        except (ValueError, TypeError):
             pass
             
     return "❓ Status unknown"
